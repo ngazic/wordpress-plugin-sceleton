@@ -1,5 +1,9 @@
 <?php
+/**
+ * @package  AlecadddPlugin
+ */
 namespace Inc\Base;
+use \Inc\Base\BaseController;
 
 class EnqueueScriptsAndStyles extends BaseController {
 

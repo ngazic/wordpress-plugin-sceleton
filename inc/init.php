@@ -9,7 +9,8 @@ final class Init {
 	 */
 	static function getServices() {
 		return [
-			Base\EnqueueScriptsAndStyles::class
+			Base\EnqueueScriptsAndStyles::class,
+			Base\SettingsLinks::class
 		];
 	}
 
@@ -21,7 +22,6 @@ final class Init {
 	static function registerServices() {
 		$services = self::getServices();
 		foreach($services as $service) {
-			echo $service;
 			$service = self::instantiate($service);
 			if(method_exists($service,'register')) {
 				$service->register();

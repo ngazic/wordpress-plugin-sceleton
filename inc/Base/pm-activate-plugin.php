@@ -1,10 +1,10 @@
 <?php
 /**
- * THIS METHOD IS CALLED WHEN ACTIVATING PLUGIN
  * @package  PM
  */
-class PmPluginActivate
-{
+namespace Inc\Base;
+
+class Activate {
 	public static function activate() {
 		flush_rewrite_rules();
 	}
