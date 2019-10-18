@@ -1,4 +1,5 @@
 *settings.json for VS Code PHP :
+```terminal
   {
     "[twig]": {},
     "workbench.colorTheme": "Default Light+",
@@ -28,3 +29,4 @@
     "phpfmt.psr2":false,
     "phpfmt.indent_with_space": 2
 }
+```
