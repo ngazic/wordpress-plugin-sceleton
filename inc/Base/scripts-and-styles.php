@@ -1,6 +1,6 @@
 <?php
 /**
- * @package  AlecadddPlugin
+ * @package  PM
  */
 namespace Inc\Base;
 use \Inc\Base\BaseController;

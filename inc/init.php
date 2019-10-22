@@ -10,7 +10,8 @@ final class Init {
 	static function getServices() {
 		return [
 			Base\EnqueueScriptsAndStyles::class,
-			Base\SettingsLinks::class
+			Base\SettingsLinks::class,
+			Pages\AdminPages::class
 		];
 	}
 
