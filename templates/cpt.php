@@ -1,0 +1,1 @@
+<h1>CPT manager</h1>

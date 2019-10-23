@@ -22,6 +22,9 @@ final class Includes {
 		foreach(glob(self::$pluginPath.'/inc/*/*.php') as $file) {
 			require_once $file;
 		}
+		foreach(glob(self::$pluginPath.'/inc/*/*/*.php') as $file) {
+			require_once $file;
+		}
 
 	}
 }

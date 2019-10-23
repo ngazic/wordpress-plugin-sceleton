@@ -1,0 +1,1 @@
+<h1>Widgets manager</h1>

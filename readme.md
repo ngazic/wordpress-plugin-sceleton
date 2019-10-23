@@ -30,3 +30,11 @@
     "phpfmt.indent_with_space": 2
 }
 ```
+
+## Install trailing semicolon extension for VS Code
+
+1. Packages->trailing Semicolon (by Sergii Naumov)
+2. Ctrl+Shift+P 	-> 	Keyboard shortcuts
+3. Ctr+F 					->	Trailing Semicolon
+4. Set combination (e.g. Windows + ;)
+
