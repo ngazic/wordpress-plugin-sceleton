@@ -13,7 +13,7 @@ class EnqueueScriptsAndStyles extends BaseController {
 
 	function enqueue() {
 		//enqueue all scripts and styles
-		wp_enqueue_script('myPluginScript', $this->plugin_url.'js/pmscript.js', true);
-		wp_enqueue_style('myPluginStyle', $this->plugin_url.'css/pmstyle.css');
+		wp_enqueue_script('myPluginScript', $this->plugin_url.'src/js/pmscript.js', true);
+		wp_enqueue_style('myPluginStyle', $this->plugin_url.'src/css/pmstyle.css');
 	}
 }

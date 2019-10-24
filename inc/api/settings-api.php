@@ -71,7 +71,7 @@ class SettingsApi {
         'menu_title' => ($title) ? $title : $admin_page['menu_title'],
         'capability' => $admin_page['capability'],
         'menu_slug' => $admin_page['menu_slug'],
-        'callback' => function () {echo "this is custom first  subpage in admin menu";},
+        'callback' => $admin_page['callback'],
       ),
     );
     return $this;
