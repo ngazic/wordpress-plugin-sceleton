@@ -11,7 +11,8 @@ final class Init {
 		return [
 			Base\EnqueueScriptsAndStyles::class,
 			Base\SettingsLinks::class,
-			Pages\AdminPages::class
+			Pages\Dashboard::class,
+			Base\CustomPostTypeController::class
 		];
 	}
 
