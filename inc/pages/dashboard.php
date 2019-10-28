@@ -29,7 +29,6 @@ class Dashboard extends BaseController {
     $this->callbacks_mgr = new ManagerCallbacks();
 
     $this->setPages();
-    $this->setSubPages();
     $this->setSettings();
     $this->setSections();
     $this->setFields();
@@ -58,14 +57,6 @@ class Dashboard extends BaseController {
 
    // public function setSubPages() {
   //   $this->subPages = array(
-  //     array(
-  //       'parent_slug' => 'pm_plugin',
-  //       'page_title' => 'Custom Post Types',
-  //       'menu_title' => 'CPT',
-  //       'capability' => 'manage_options',
-  //       'menu_slug' => 'pm_cpt',
-  //       'callback' => array($this->callbacks, 'adminCpt'),
-  //     ),
   //     array(
   //       'parent_slug' => 'pm_plugin',
   //       'page_title' => 'Custom Taxonomies',

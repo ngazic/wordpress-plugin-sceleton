@@ -20,7 +20,11 @@ class ManagerCallbacks extends BaseController {
     //return (isset($input) ? true : false);
     $output = array();
 		foreach ( $this->managers as $key => $value ) {
-			$output[$key] = isset( $input[$key] ) ? true : false;
+     var_dump($key);
+      echo '<br>';
+      $output[$key] = isset( $input[$key] ) ? true : false;
+      echo $output[$key];
+      echo '<br>';
 		}
 		return $output;
   }
@@ -39,7 +43,7 @@ class ManagerCallbacks extends BaseController {
     $classes = $args['class'];
     $option_name = $args['option_name'];
     $checkbox = get_option($option_name);
-    echo '<input type="checkbox" id="' . $name .' name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" ' . ($checkbox ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
+    echo '<input type="checkbox" id="' . $name .'" name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" ' . ($checkbox[$name] ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
   }
 
 }

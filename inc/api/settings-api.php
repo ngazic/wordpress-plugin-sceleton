@@ -46,9 +46,6 @@ class SettingsApi {
    * @return class SettingsApi   instance
    */
   public function addSubPages(array $sub_pages) {
-    if (empty($this->admin_pages)) {
-      return $this;
-    }
     $this->admin_subpages = array_merge($this->admin_subpages, $sub_pages);
     return $this;
   }

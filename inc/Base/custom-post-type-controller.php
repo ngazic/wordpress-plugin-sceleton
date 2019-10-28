@@ -4,6 +4,11 @@
  */
 namespace Inc\Base;
 
+use Inc\Api\Callbacks\AdminCallbacks;
+use Inc\Base\BaseController;
+use Inc\Api\Callbacks\ManagerCallbacks;
+use Inc\Api\SettingsApi;
+
 /**
  * Controler for CPT
  */
@@ -34,13 +39,13 @@ class CustomPostTypeController extends BaseController {
   public function setSubpages() {
     $this->subpages = array(
       array(
-        'parent_slug' => 'alecaddd_plugin',
+        'parent_slug' => 'pm_plugin',
         'page_title' => 'Custom Post Types',
-        'menu_title' => 'CPT Manager',
+        'menu_title' => 'CPT',
         'capability' => 'manage_options',
-        'menu_slug' => 'alecaddd_cpt',
+        'menu_slug' => 'pm_cpt',
         'callback' => array($this->callbacks, 'adminCpt'),
-      ),
+      )
     );
 	}
 	
