@@ -77,7 +77,7 @@ class Dashboard extends BaseController {
   // }
 
   /**
-   * Adding settings to api
+   * Create dashboard settings using api
    * @return
    */
   public function setSettings() {
@@ -92,7 +92,7 @@ class Dashboard extends BaseController {
   }
 
   /**
-   * Adding sections to api
+   * Adding dashboard sections
    * @return
    */
   public function setSections() {

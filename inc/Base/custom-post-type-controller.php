@@ -4,17 +4,22 @@
  */
 namespace Inc\Base;
 
-use Inc\Api\Callbacks\AdminCallbacks;
-use Inc\Base\BaseController;
-use Inc\Api\Callbacks\ManagerCallbacks;
 use Inc\Api\SettingsApi;
+use Inc\Base\BaseController;
+use Inc\Api\Callbacks\CptCallbacks;
+use Inc\Api\Callbacks\AdminCallbacks;
+use Inc\Api\Callbacks\ManagerCallbacks;
 
 /**
  * Controler for CPT
  */
 class CustomPostTypeController extends BaseController {
+  public $settings;
   public $callbacks;
-	public $subpages = array();
+  public $cpt_callbacks;
+
+  public $subpages = array();
+  
 	
 	 /**
    * Register CPT and CPT admin subpage
@@ -27,7 +32,10 @@ class CustomPostTypeController extends BaseController {
 
     $this->settings = new SettingsApi();
     $this->callbacks = new AdminCallbacks();
+    $this->cpt_callbacks = new CptCallbacks();
     $this->setSubpages();
+    $this->setSettings();
+    $this->setSections();
     $this->settings->addSubPages($this->subpages)->register();
     add_action('init', array($this, 'activate'));
 	}
@@ -47,7 +55,38 @@ class CustomPostTypeController extends BaseController {
         'callback' => array($this->callbacks, 'adminCpt'),
       )
     );
-	}
+  }
+  
+  /**
+   * create CPT settings using api
+   * @return 
+   */
+  public function setSettings() {
+    $args = array(
+      array(
+        'option_group' => 'pm_plugin_settings',
+        'option_name' => 'pm_plugin_cpt',
+        'callback' => array($this->cpt_callbacks, 'cptSanitize'),
+      )
+    );
+    $this->settings->setSettings($args);  
+  }
+
+  /**
+ * Adding dashboard sections
+   * @return
+   */
+  public function setSections() {
+    $args = array(
+      array(
+        'id' => 'pm_cpt_index',
+        'title' => 'CPT Manager',
+        'callback' => array($this->cpt_callbacks, 'cptSectionManager'),
+        'page' => 'pm_cpt',
+      ),
+    );
+    $this->settings->setSections($args);
+  }
 	
 	/**
    * activate CPT
