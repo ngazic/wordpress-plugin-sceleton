@@ -30,7 +30,7 @@ class CptCallbacks {
   }
 
   public function cptSectionManager() {
-    echo 'PM plugin Custom Post Types';
+    echo 'Add as many custom post types as you want';
   }
 
   /**

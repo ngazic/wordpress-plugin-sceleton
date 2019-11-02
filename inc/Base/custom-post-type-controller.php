@@ -4,11 +4,10 @@
  */
 namespace Inc\Base;
 
+use Inc\Api\Callbacks\AdminCallbacks;
+use Inc\Api\Callbacks\CptCallbacks;
 use Inc\Api\SettingsApi;
 use Inc\Base\BaseController;
-use Inc\Api\Callbacks\CptCallbacks;
-use Inc\Api\Callbacks\AdminCallbacks;
-use Inc\Api\Callbacks\ManagerCallbacks;
 
 /**
  * Controler for CPT
@@ -19,9 +18,8 @@ class CustomPostTypeController extends BaseController {
   public $cpt_callbacks;
 
   public $subpages = array();
-  
-	
-	 /**
+
+  /**
    * Register CPT and CPT admin subpage
    * @return
    */
@@ -36,11 +34,12 @@ class CustomPostTypeController extends BaseController {
     $this->setSubpages();
     $this->setSettings();
     $this->setSections();
+    $this->setFields();
     $this->settings->addSubPages($this->subpages)->register();
     add_action('init', array($this, 'activate'));
-	}
-	
-	/**
+  }
+
+  /**
    * create CPT admin subpage
    * @return
    */
@@ -53,27 +52,27 @@ class CustomPostTypeController extends BaseController {
         'capability' => 'manage_options',
         'menu_slug' => 'pm_cpt',
         'callback' => array($this->callbacks, 'adminCpt'),
-      )
+      ),
     );
   }
-  
+
   /**
    * create CPT settings using api
-   * @return 
+   * @return
    */
   public function setSettings() {
     $args = array(
       array(
-        'option_group' => 'pm_plugin_settings',
+        'option_group' => 'pm_plugin_cpt_settings',
         'option_name' => 'pm_plugin_cpt',
         'callback' => array($this->cpt_callbacks, 'cptSanitize'),
-      )
+      ),
     );
-    $this->settings->setSettings($args);  
+    $this->settings->setSettings($args);
   }
 
   /**
- * Adding dashboard sections
+   * Adding dashboard sections
    * @return
    */
   public function setSections() {
@@ -87,8 +86,32 @@ class CustomPostTypeController extends BaseController {
     );
     $this->settings->setSections($args);
   }
-	
-	/**
+
+   /**
+   * Adding fields to api
+   * @return
+   */
+  public function setFields() {
+    // Note: we can put any key/value in "args" key
+    //'label_for' must match 'id'
+    $fields = array();
+      $fields[] = array(
+        'id' => 'pm_plugin_cpt',
+        'title' =>"dummy field",
+        'callback' => function() {echo 'hi there';},
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cp',
+          'label_for'   => 'me',
+          'class'       => 'ui-toggle'
+        )
+      );
+    
+    $this->settings->setFields($fields);
+  }
+
+  /**
    * activate CPT
    * @return
    */
