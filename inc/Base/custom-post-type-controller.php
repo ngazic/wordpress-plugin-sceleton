@@ -18,6 +18,7 @@ class CustomPostTypeController extends BaseController {
   public $cpt_callbacks;
 
   public $subpages = array();
+  public $custom_post_types = array();
 
   /**
    * Register CPT and CPT admin subpage
@@ -94,19 +95,21 @@ class CustomPostTypeController extends BaseController {
   public function setFields() {
     // Note: we can put any key/value in "args" key
     //'label_for' must match 'id'
-    $fields = array();
-      $fields[] = array(
-        'id' => 'pm_plugin_cpt',
-        'title' =>"dummy field",
-        'callback' => function() {echo 'hi there';},
+    $fields = array(
+      array(
+        'id' => 'post_type',
+        'title' =>"Custom Post Type ID",
+        'callback' => array($this->cpt_callbacks, 'textField'),
         'page' => 'pm_cpt',
         'section' => 'pm_cpt_index',
         'args' => array(
-          'option_name' => 'pm_plugin_cp',
-          'label_for'   => 'me',
-          'class'       => 'ui-toggle'
+          'option_name' => 'pm_plugin_cpt',
+          'label_for'   => 'post_type',
+          'placeholder' => 'e.g. Product',
+          'array'       => 'post_type'
         )
-      );
+      )
+    );
     
     $this->settings->setFields($fields);
   }

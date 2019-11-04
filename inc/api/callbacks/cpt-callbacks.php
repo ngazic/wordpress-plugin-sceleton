@@ -11,7 +11,7 @@ class CptCallbacks {
 
   /**
    * Sanitizes the input value for every field of
-   * option group pm_plugin_settings
+   * option group pm_plugin_cpt
    * @param array $input  value of field
    * @return array $output sanitized value of option pm_plugin_cpt
    */
@@ -43,7 +43,20 @@ class CptCallbacks {
     $classes = $args['class'];
     $option_name = $args['option_name'];
     $checkbox = get_option($option_name);
-    echo '<input type="checkbox" id="' . $name .'" name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" ' . ($checkbox[$name] ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
+    echo '<input type="checkbox" class="regular-text" id="' . $name .'" name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" ' . ($checkbox[$name] ? 'checked' : '') . '>';
+  }
+
+  /**
+   * Callbacks for text fields
+   * @param array $args parameter in set_field() 
+   * @return  
+   */
+  public function textField($args) {
+    $name = $args['label_for'];
+    $option_name = $args['option_name'];
+    $placeholder = $args['placeholder'];
+    $textfield = get_option($option_name);
+    echo '<input type="text" id="' . $name .'" name="' .$textfield.'['.$name.']" placeholder="'.$placeholder.'" ><label for="' . $name . '"></label></div>';
   }
 
 }
