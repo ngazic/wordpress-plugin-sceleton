@@ -16,8 +16,6 @@ class CptCallbacks {
    * @return array $output sanitized value of option pm_plugin_cpt
    */
   public function cptSanitize($input) {
-    // return filter_var($input, FILTER_SANITIZE_NUMBER_INT);
-    //return (isset($input) ? true : false);
     $output = get_option('pm_plugin_cpt');
 		foreach ($output as $key => $value ) {
       if($input['post_type'] === $key) {
@@ -25,8 +23,8 @@ class CptCallbacks {
       } else {
         $output[$key] = $input;
       }
-		}
-		return $output;
+    }
+    return $output;
   }
 
   public function cptSectionManager() {
@@ -56,7 +54,7 @@ class CptCallbacks {
     $option_name = $args['option_name'];
     $placeholder = $args['placeholder'];
     $textfield = get_option($option_name);
-    echo '<input type="text" id="' . $name .'" name="' .$textfield.'['.$name.']" placeholder="'.$placeholder.'" ><label for="' . $name . '"></label></div>';
+    echo '<input type="text" id="' . $name .'" name="' .$option_name.'['.$name.']" placeholder="'.$placeholder.'" >';
   }
 
 }

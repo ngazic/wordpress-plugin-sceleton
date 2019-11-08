@@ -4,10 +4,10 @@
  */
 namespace Inc\Base;
 
-use Inc\Api\Callbacks\AdminCallbacks;
-use Inc\Api\Callbacks\CptCallbacks;
 use Inc\Api\SettingsApi;
 use Inc\Base\BaseController;
+use Inc\Api\Callbacks\CptCallbacks;
+use Inc\Api\Callbacks\AdminCallbacks;
 
 /**
  * Controler for CPT
@@ -66,10 +66,11 @@ class CustomPostTypeController extends BaseController {
       array(
         'option_group' => 'pm_plugin_cpt_settings',
         'option_name' => 'pm_plugin_cpt',
-        'callback' => array($this->cpt_callbacks, 'cptSanitize'),
-      ),
+        // 'callback' => array($this->cpt_callbacks, 'cptSanitize'),
+      )
     );
     $this->settings->setSettings($args);
+
   }
 
   /**
@@ -88,7 +89,7 @@ class CustomPostTypeController extends BaseController {
     $this->settings->setSections($args);
   }
 
-   /**
+  /**
    * Adding fields to api
    * @return
    */
@@ -98,19 +99,19 @@ class CustomPostTypeController extends BaseController {
     $fields = array(
       array(
         'id' => 'post_type',
-        'title' =>"Custom Post Type ID",
+        'title' => "Custom Post Type ID",
         'callback' => array($this->cpt_callbacks, 'textField'),
         'page' => 'pm_cpt',
         'section' => 'pm_cpt_index',
         'args' => array(
           'option_name' => 'pm_plugin_cpt',
-          'label_for'   => 'post_type',
+          'label_for' => 'post_type',
           'placeholder' => 'e.g. Product',
-          'array'       => 'post_type'
-        )
-      )
+          'array' => 'post_type',
+        ),
+      ),
     );
-    
+
     $this->settings->setFields($fields);
   }
 
