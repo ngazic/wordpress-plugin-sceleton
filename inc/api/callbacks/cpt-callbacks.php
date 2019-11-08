@@ -17,13 +17,19 @@ class CptCallbacks {
    */
   public function cptSanitize($input) {
     $output = get_option('pm_plugin_cpt');
-		foreach ($output as $key => $value ) {
+    error_log('this is output variable in cptsanitize function');
+    error_log(json_encode($output));
+    error_log('this is input variable in cptsanitize function');
+    error_log(json_encode($input));
+    foreach ($output as $key => $value ) {
       if($input['post_type'] === $key) {
         $output[$key] = $input;
       } else {
-        $output[$key] = $input;
+        $output[$input['post_type']] = $input;
       }
     }
+  
+    error_log(json_encode($output));
     return $output;
   }
 
@@ -41,7 +47,7 @@ class CptCallbacks {
     $classes = $args['class'];
     $option_name = $args['option_name'];
     $checkbox = get_option($option_name);
-    echo '<input type="checkbox" class="regular-text" id="' . $name .'" name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" ' . ($checkbox[$name] ? 'checked' : '') . '>';
+    echo '<input type="checkbox" id="' . $name .'" name="' .$option_name.'[' .$name . ']"  class="' . $classes . '" value="1"><label for="' . $name . '"><div></div></label></div>';
   }
 
   /**

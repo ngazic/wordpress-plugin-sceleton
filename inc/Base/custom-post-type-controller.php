@@ -66,7 +66,7 @@ class CustomPostTypeController extends BaseController {
       array(
         'option_group' => 'pm_plugin_cpt_settings',
         'option_name' => 'pm_plugin_cpt',
-        // 'callback' => array($this->cpt_callbacks, 'cptSanitize'),
+        'callback' => array($this->cpt_callbacks, 'cptSanitize'),
       )
     );
     $this->settings->setSettings($args);
@@ -110,6 +110,71 @@ class CustomPostTypeController extends BaseController {
           'array' => 'post_type',
         ),
       ),
+      array(
+        'id' => 'post_type',
+        'title' => "Custom Post Type ID",
+        'callback' => array($this->cpt_callbacks, 'textField'),
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cpt',
+          'label_for' => 'post_type',
+          'placeholder' => 'e.g. Product',
+          'array' => 'post_type',
+        ),
+      ),
+      array(
+        'id' => 'singular_name',
+        'title' => "Singular Name",
+        'callback' => array($this->cpt_callbacks, 'textField'),
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cpt',
+          'label_for' => 'singular_name',
+          'placeholder' => 'e.g. Product',
+          'array' => 'post_type',
+        ),
+      ),
+      array(
+        'id' => 'plural_name',
+        'title' => "Plural Name",
+        'callback' => array($this->cpt_callbacks, 'textField'),
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cpt',
+          'label_for' => 'plural_name',
+          'placeholder' => 'e.g. Product',
+          'array' => 'post_type',
+        ),
+      ),
+      array(
+        'id' => 'public',
+        'title' => "Public",
+        'callback' => array($this->cpt_callbacks, 'checkboxField'),
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cpt',
+          'label_for' => 'public',
+          'class' => 'ui-toggle',
+          'array' => 'post_type',
+        ),
+      ),
+      array(
+        'id' => 'has_archive',
+        'title' => "Archive",
+        'callback' => array($this->cpt_callbacks, 'checkboxField'),
+        'page' => 'pm_cpt',
+        'section' => 'pm_cpt_index',
+        'args' => array(
+          'option_name' => 'pm_plugin_cpt',
+          'label_for' => 'has_archive',
+          'class' => 'ui-toggle',
+          'array' => 'post_type',
+        ),
+      )
     );
 
     $this->settings->setFields($fields);
