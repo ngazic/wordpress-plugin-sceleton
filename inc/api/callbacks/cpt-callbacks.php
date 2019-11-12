@@ -17,10 +17,6 @@ class CptCallbacks {
    */
   public function cptSanitize($input) {
     $output = get_option('pm_plugin_cpt');
-    error_log('this is output variable in cptsanitize function');
-    error_log(json_encode($output));
-    error_log('this is input variable in cptsanitize function');
-    error_log(json_encode($input));
     foreach ($output as $key => $value ) {
       if($input['post_type'] === $key) {
         $output[$key] = $input;
@@ -28,8 +24,6 @@ class CptCallbacks {
         $output[$input['post_type']] = $input;
       }
     }
-  
-    error_log(json_encode($output));
     return $output;
   }
 
