@@ -17,7 +17,9 @@
          $options = get_option('pm_plugin_cpt');
          echo '<tr><th>ID</th><th>Singular Name</th><th>Plural Name</th><th class="text-center">Public</th><th class="text-center">Archive</th><th class="text-center">ACTIONS</th></tr>';
          foreach ($options as $option) {
-          echo "<tr><td>$option[post_type]</td><td>$option[singular_name]</td><td>$option[plural_name]</td><td class=\"text-center\">$option[public]</td><td class=\"text-center\">$option[has_archive]</td><td class=\"text-center\"><a href=\"#\">EDIT</a> - <a href=\"#\">DELETE</a></td></tr>";
+           $public = isset($option['public'])? 'YES' : 'NO';
+           $archive = isset($option['has_archive'])? 'YES' : 'NO';
+          echo "<tr><td>$option[post_type]</td><td>$option[singular_name]</td><td>$option[plural_name]</td><td class=\"text-center\">$public</td><td class=\"text-center\">$archive</td><td class=\"text-center\"><a href=\"#\">EDIT</a> - <a href=\"#\">DELETE</a></td></tr>";
          }
       ?>
       </table>

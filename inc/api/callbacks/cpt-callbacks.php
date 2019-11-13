@@ -16,6 +16,7 @@ class CptCallbacks {
    * @return array $output sanitized value of option pm_plugin_cpt
    */
   public function cptSanitize($input) {
+    error_log(json_encode($_POST));
     $output = get_option('pm_plugin_cpt');
     foreach ($output as $key => $value ) {
       if($input['post_type'] === $key) {
