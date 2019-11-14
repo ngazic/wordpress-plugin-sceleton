@@ -177,7 +177,7 @@ class CustomPostTypeController extends BaseController {
    * @return 
    */
   public function storeCustomPostTypes() {
-    $options = get_option('pm_plugin_cpt');
+    $options = get_option('pm_plugin_cpt')?:array();
 		foreach ($options as $option) {
 			$this->custom_post_types[] = array(
 				'post_type'             => $option['post_type'],
