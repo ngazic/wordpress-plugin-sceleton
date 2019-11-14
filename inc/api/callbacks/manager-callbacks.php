@@ -20,11 +20,7 @@ class ManagerCallbacks extends BaseController {
     //return (isset($input) ? true : false);
     $output = array();
 		foreach ( $this->managers as $key => $value ) {
-     var_dump($key);
-      echo '<br>';
       $output[$key] = isset( $input[$key] ) ? true : false;
-      echo $output[$key];
-      echo '<br>';
 		}
 		return $output;
   }
