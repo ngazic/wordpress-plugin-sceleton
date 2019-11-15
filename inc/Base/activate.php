@@ -19,5 +19,8 @@ class Activate {
     if (get_option('pm_plugin_cpt')) {
       update_option('pm_plugin_cpt', $default);
     }
+    if (get_option('pm_plugin_taxonomy')) {
+      update_option('pm_plugin_taxonomy', $default);
+    }
   }
 }

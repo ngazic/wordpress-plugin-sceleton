@@ -18,7 +18,7 @@ class AdminCallbacks extends BaseController {
     require_once "$this->plugin_path/templates/cpt.php";
   }
   
-  public function adminTaxonomy() {
+  public function adminTaxonomies() {
     require_once "$this->plugin_path/templates/taxonomy.php";
 
   }

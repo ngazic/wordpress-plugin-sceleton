@@ -12,7 +12,8 @@ final class Init {
 			Base\EnqueueScriptsAndStyles::class,
 			Base\SettingsLinks::class,
 			Pages\Dashboard::class,
-			Base\CustomPostTypeController::class
+			Base\CustomPostTypeController::class,
+			Base\TaxonomyController::class
 		];
 	}
 
