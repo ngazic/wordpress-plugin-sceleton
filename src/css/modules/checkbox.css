@@ -37,3 +37,7 @@ input[type='checkbox'].ui-toggle + label:hover,
 input[type='checkbox'].ui-toggle + label > div:hover {
 	cursor: pointer;
 }
+
+.mb-10 {
+	margin-bottom: 10px;
+}

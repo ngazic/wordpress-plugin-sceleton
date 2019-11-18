@@ -73,7 +73,7 @@ class CptCallbacks {
       error_log($_POST['edit_post']);
       $value = $textfield[$_POST['edit_post']][$name];
     }
-    echo '<input type="text" id="' . $name .'" name="' .$option_name.'['.$name.']" placeholder="'.$placeholder.'"  value="'.$value.'">';
+    echo '<input required type="text" id="' . $name .'" name="' .$option_name.'['.$name.']" placeholder="'.$placeholder.'"  value="'.$value.'">';
   }
 
 }
