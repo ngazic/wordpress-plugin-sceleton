@@ -14,10 +14,8 @@ use Inc\Api\Callbacks\AdminCallbacks;
 class GalleryController extends BaseController {
   public $settings;
   public $callbacks;
-  public $tax_callbacks;
 
   public $subpages = array();
-  public $taxonomies = array();
 
   /**
    * Register CPT and CPT admin subpage
