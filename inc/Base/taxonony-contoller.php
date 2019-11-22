@@ -6,11 +6,11 @@ namespace Inc\Base;
 
 use Inc\Api\SettingsApi;
 use Inc\Base\BaseController;
-use Inc\Api\Callbacks\TaxonomyCallbacks;
 use Inc\Api\Callbacks\AdminCallbacks;
+use Inc\Api\Callbacks\TaxonomyCallbacks;
 
 /**
- * Controler for CPT
+ * Controler for custom taxonomies
  */
 class TaxonomyController extends BaseController {
   public $settings;
@@ -21,7 +21,7 @@ class TaxonomyController extends BaseController {
   public $taxonomies = array();
 
   /**
-   * Register CPT and CPT admin subpage
+   * Register Custom taxonomies and Custom taxonomies admin subpage
    * @return
    */
   public function register() {
@@ -45,7 +45,7 @@ class TaxonomyController extends BaseController {
   }
 
   /**
-   * create CPT admin subpage
+   * create taxonomy admin subpage
    * @return
    */
   public function setSubpages() {
@@ -62,7 +62,7 @@ class TaxonomyController extends BaseController {
   }
 
   /**
-   * create CPT settings using api
+   * create taxonomy settings using api
    * @return
    */
   public function setSettings() {

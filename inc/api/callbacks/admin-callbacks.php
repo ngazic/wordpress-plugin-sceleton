@@ -25,5 +25,8 @@ class AdminCallbacks extends BaseController {
   public function adminWidget() {
     require_once "$this->plugin_path/templates/widget.php";
   }
+  public function adminGallery() {
+    require_once "$this->plugin_path/templates/gallery.php";
+  }
 
 }

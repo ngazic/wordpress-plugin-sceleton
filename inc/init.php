@@ -3,7 +3,7 @@ namespace Inc;
 
 final class Init {
 
-	/**
+	/**THIS IS WHERE YOU CALL YOUR CUSTOM CLASS
 	 * Store all the classes inside an array
 	 * @return array Full list of classes
 	 */
@@ -13,7 +13,8 @@ final class Init {
 			Base\SettingsLinks::class,
 			Pages\Dashboard::class,
 			Base\CustomPostTypeController::class,
-			Base\TaxonomyController::class
+			Base\TaxonomyController::class,
+			Base\GalleryController::class
 		];
 	}
 

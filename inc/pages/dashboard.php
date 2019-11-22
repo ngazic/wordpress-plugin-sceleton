@@ -55,27 +55,6 @@ class Dashboard extends BaseController {
 
   }
 
-   // public function setSubPages() {
-  //   $this->subPages = array(
-  //     array(
-  //       'parent_slug' => 'pm_plugin',
-  //       'page_title' => 'Custom Taxonomies',
-  //       'menu_title' => 'Taxonomies',
-  //       'capability' => 'manage_options',
-  //       'menu_slug' => 'pm_taxonomies',
-  //       'callback' => array($this->callbacks, 'adminTaxonomy'),
-  //     ),
-  //     array(
-  //       'parent_slug' => 'pm_plugin',
-  //       'page_title' => 'Custom Widgets',
-  //       'menu_title' => 'Widgets',
-  //       'capability' => 'manage_options',
-  //       'menu_slug' => 'pm_widgets',
-  //       'callback' => array($this->callbacks, 'adminWidget'),
-  //     ),
-  //   );
-  // }
-
   /**
    * Create dashboard settings using api
    * @return
